@@ -1,8 +1,9 @@
 use https://github.com/kubernetes/code-generator to generator kubernetes types of crd client、informer、listers
 
 #### prepare
-1. mkdir -p generator-example/apis/samplecontroller/v1alpha1 && generator-example/apis/samplecontroller/v1alpha1 
+1. ``` mkdir -p generator-example/apis/samplecontroller/v1alpha1 && generator-example/apis/samplecontroller/v1alpha1``` 
 2. touch doc.go
+
 ```
 // +k8s:deepcopy-gen=package
 // +groupName=samplecontroller.kimo.io
@@ -10,7 +11,9 @@ use https://github.com/kubernetes/code-generator to generator kubernetes types o
 // v1alpha1版本的api包
 package v1alpha1
 ```
+
 3. touch types.go
+
 ```
 package v1alpha1
 
@@ -54,9 +57,12 @@ type FooList struct {
 ```
 
 #### how to generate crd client
+```
 cd generator-example && sh ./hack/update-codegen.sh
+```
 
 #### how to use client
+
 ```
 generator-example/pkg/apis/samplecontroller/v1alpha1/client_test.go
 ```
